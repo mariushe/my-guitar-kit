@@ -1,0 +1,75 @@
+
+.main {
+    padding-top: 50px;
+}
+
+.body {
+    background: #3C3D3D;
+}
+
+.fretboard {
+    padding-bottom: 50px;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    height:200px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.fret {
+    display:inline-block;
+    border-left: 1px solid #999;
+    padding-left: 10px;
+    height: 30px;
+    width: 40px;
+    position: relative;
+    cursor: pointer;
+}
+
+.selections {
+    text-align: center;
+}
+
+.round-span {
+    position: absolute;
+    color: #000;
+    z-index: -1;
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+
+    width: 23px;
+    height: 23px;
+
+    top: -1px;
+    left: 4px;
+}
+
+.round-root {
+    background: #4A95C4;
+}
+
+.round-scale {
+    background: #757574;
+}
+
+.note {
+    padding-left: 10px;
+}
+
+.string {
+    margin: 0px;
+}
+
+.not-in-scale {
+    color: #757574;
+}
+
+.in-scale {
+    color: #FFF;
+    opacity: 0.7;
+}
+
+.root {
+    color: #FFF;
+    opacity: 0.7;
+}
