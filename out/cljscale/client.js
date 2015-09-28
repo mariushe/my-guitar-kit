@@ -65,7 +65,7 @@ return cljs.core.apply.call(null,quiescent.dom.ul,new cljs.core.PersistentArrayM
  * 
  */
 cljscale.client.FretBoard = quiescent.core.component.call(null,(function (fretboard){
-return quiescent.dom.div.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"className","className",-1983287057),"row"], null),cljs.core.apply.call(null,quiescent.dom.div,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"className","className",-1983287057),"fretboard col-sm-12"], null),cljs.core.mapv.call(null,cljscale.client.String,fretboard)));
+return quiescent.dom.div.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"className","className",-1983287057),"row fretboard-wrapper"], null),cljs.core.apply.call(null,quiescent.dom.div,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"className","className",-1983287057),"fretboard col-sm-12"], null),cljs.core.mapv.call(null,cljscale.client.String,fretboard)));
 }),cljs.core.PersistentArrayMap.EMPTY);
 /**
  * 
