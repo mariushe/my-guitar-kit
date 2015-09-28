@@ -9,6 +9,9 @@
 
 (def e-standard ["E" "B" "G" "D" "A" "E"])
 
+(def tunes {"Standard (E A D G B E)" ["E" "B" "G" "D" "A" "E"]
+            "Drop D (D A D G B E)" ["E" "B" "G" "D" "A" "D"]})
+
 (def scales {"" '(0 1 2 3 4 5 6 7 8 9 10 11)
              "pentatonic-minor" '(0 3 5 7 10)
              "phrygian" '(0 1 3 5 7 8 10)})

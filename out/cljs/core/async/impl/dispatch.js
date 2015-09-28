@@ -12,16 +12,16 @@ cljs.core.async.impl.dispatch.running_QMARK_ = true;
 
 cljs.core.async.impl.dispatch.queued_QMARK_ = false;
 
-var count_28336 = (0);
+var count_32525 = (0);
 while(true){
-var m_28337 = cljs.core.async.impl.dispatch.tasks.pop();
-if((m_28337 == null)){
+var m_32526 = cljs.core.async.impl.dispatch.tasks.pop();
+if((m_32526 == null)){
 } else {
-m_28337.call(null);
+m_32526.call(null);
 
-if((count_28336 < cljs.core.async.impl.dispatch.TASK_BATCH_SIZE)){
-var G__28338 = (count_28336 + (1));
-count_28336 = G__28338;
+if((count_32525 < cljs.core.async.impl.dispatch.TASK_BATCH_SIZE)){
+var G__32527 = (count_32525 + (1));
+count_32525 = G__32527;
 continue;
 } else {
 }
@@ -38,11 +38,11 @@ return null;
 }
 });
 cljs.core.async.impl.dispatch.queue_dispatcher = (function cljs$core$async$impl$dispatch$queue_dispatcher(){
-if(cljs.core.truth_((function (){var and__16457__auto__ = cljs.core.async.impl.dispatch.queued_QMARK_;
-if(cljs.core.truth_(and__16457__auto__)){
+if(cljs.core.truth_((function (){var and__16499__auto__ = cljs.core.async.impl.dispatch.queued_QMARK_;
+if(cljs.core.truth_(and__16499__auto__)){
 return cljs.core.async.impl.dispatch.running_QMARK_;
 } else {
-return and__16457__auto__;
+return and__16499__auto__;
 }
 })())){
 return null;

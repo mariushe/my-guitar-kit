@@ -8,7 +8,8 @@
 (def fretboard (atom []))
 
 (def settings (atom {:root ""
-                     :scale ""}))
+                     :scale ""
+                     :tune "Standard (E A D G B E)"}))
 
 (declare FretBoard)
 
@@ -20,7 +21,7 @@
    (.getElementById js/document "main")))
 
 (defn load []
-  (swap! fretboard (fn [_] (g/create-fretboard g/e-standard 24)))
+  (swap! fretboard (fn [_] (g/create-fretboard (g/tunes (:tune @settings)) 24)))
   (when (not (= (:root @settings) ""))
     (swap! fretboard (fn [_] (g/add-root @fretboard (:root @settings)))))
   (when (not (= (:scale @settings) ""))
@@ -62,6 +63,14 @@
 (q/defcomponent Option [root]
   (d/option {:value root} root))
 
+(q/defcomponent Tune []
+  (apply d/select
+         {:className "root-selection"
+          :onChange (fn [root]
+                      (swap! settings assoc :tune (.-value (.-target root)))
+                      (load))}
+         (map Option (conj (keys g/tunes) ""))))
+
 (q/defcomponent Root []
   (apply d/select
          {:className "root-selection"
@@ -81,6 +90,7 @@
 (q/defcomponent Selections []
   (d/div
    {:className "selections row"}
+   (Tune)
    (Root)
    (Scale)))
 
