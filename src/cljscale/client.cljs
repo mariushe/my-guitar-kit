@@ -49,16 +49,14 @@
                (load))}
    (when (:in-scale fret) (RoundSpan "round-scale"))
    (when (:root fret) (RoundSpan "round-root"))
-   ;;(NoteSpan fret)
    (:note fret)
-   ;;""
    ))
 
 (q/defcomponent String [frets]
   (apply d/ul {:className "string"} (mapv Fret frets)))
 
 (q/defcomponent FretBoard [fretboard]
-  (d/div {:className "row"}
+  (d/div {:className "row fretboard-wrapper"}
          (apply d/div {:className "fretboard col-sm-12"} (mapv String fretboard))))
 
 (q/defcomponent Option [root]
