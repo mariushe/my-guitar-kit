@@ -1,7 +1,8 @@
 (ns cljscale.client
   (:require [quiescent.core :as q]
             [quiescent.dom :as d]
-            [cljscale.generator :as g]))
+            [cljscale.generator :as g]
+            [cljscale.theory :as t]))
 
 (enable-console-print!)
 
@@ -21,7 +22,7 @@
    (.getElementById js/document "main")))
 
 (defn load []
-  (swap! fretboard (fn [_] (g/create-fretboard (g/tunes (:tune @settings)) 24)))
+  (swap! fretboard (fn [_] (g/create-fretboard (t/tunes (:tune @settings)) 24)))
   (when (not (= (:root @settings) ""))
     (swap! fretboard (fn [_] (g/add-root @fretboard (:root @settings)))))
   (when (not (= (:scale @settings) ""))
@@ -69,7 +70,7 @@
           :onChange (fn [root]
                       (swap! settings assoc :tune (.-value (.-target root)))
                       (load))}
-         (map Option (conj (keys g/tunes) ""))))
+         (map Option (conj (keys t/tunes) ""))))
 
 (q/defcomponent Root []
   (apply d/select
@@ -77,7 +78,7 @@
           :onChange (fn [root]
                       (swap! settings assoc :root (.-value (.-target root)))
                       (load))}
-         (map Option (conj g/notes ""))))
+         (map Option (conj t/notes ""))))
 
 (q/defcomponent Scale []
   (apply d/select
@@ -85,7 +86,7 @@
           :onChange (fn [root]
                       (swap! settings assoc :scale (.-value (.-target root)))
                       (load))}
-         (map Option (keys g/scales))))
+         (map Option (keys t/scales))))
 
 (q/defcomponent Selections []
   (d/div

@@ -4,6 +4,7 @@ goog.require('cljs.core');
 goog.require('quiescent.core');
 goog.require('quiescent.dom');
 goog.require('cljscale.generator');
+goog.require('cljscale.theory');
 cljs.core.enable_console_print_BANG_.call(null);
 cljscale.client.fretboard = cljs.core.atom.call(null,cljs.core.PersistentVector.EMPTY);
 cljscale.client.settings = cljs.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"root","root",-448657453),"",new cljs.core.Keyword(null,"scale","scale",-230427353),"",new cljs.core.Keyword(null,"tune","tune",-2009238620),"Standard (E A D G B E)"], null));
@@ -12,7 +13,7 @@ return quiescent.core.render.call(null,cljscale.client.View.call(null,cljs.core.
 });
 cljscale.client.load = (function cljscale$client$load(){
 cljs.core.swap_BANG_.call(null,cljscale.client.fretboard,(function (_){
-return cljscale.generator.create_fretboard.call(null,cljscale.generator.tunes.call(null,new cljs.core.Keyword(null,"tune","tune",-2009238620).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,cljscale.client.settings))),(24));
+return cljscale.generator.create_fretboard.call(null,cljscale.theory.tunes.call(null,new cljs.core.Keyword(null,"tune","tune",-2009238620).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,cljscale.client.settings))),(24));
 }));
 
 if(!(cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"root","root",-448657453).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,cljscale.client.settings)),""))){
@@ -81,7 +82,7 @@ return cljs.core.apply.call(null,quiescent.dom.select,new cljs.core.PersistentAr
 cljs.core.swap_BANG_.call(null,cljscale.client.settings,cljs.core.assoc,new cljs.core.Keyword(null,"tune","tune",-2009238620),root.target.value);
 
 return cljscale.client.load.call(null);
-})], null),cljs.core.map.call(null,cljscale.client.Option,cljs.core.conj.call(null,cljs.core.keys.call(null,cljscale.generator.tunes),"")));
+})], null),cljs.core.map.call(null,cljscale.client.Option,cljs.core.conj.call(null,cljs.core.keys.call(null,cljscale.theory.tunes),"")));
 }),cljs.core.PersistentArrayMap.EMPTY);
 /**
  * 
@@ -91,7 +92,7 @@ return cljs.core.apply.call(null,quiescent.dom.select,new cljs.core.PersistentAr
 cljs.core.swap_BANG_.call(null,cljscale.client.settings,cljs.core.assoc,new cljs.core.Keyword(null,"root","root",-448657453),root.target.value);
 
 return cljscale.client.load.call(null);
-})], null),cljs.core.map.call(null,cljscale.client.Option,cljs.core.conj.call(null,cljscale.generator.notes,"")));
+})], null),cljs.core.map.call(null,cljscale.client.Option,cljs.core.conj.call(null,cljscale.theory.notes,"")));
 }),cljs.core.PersistentArrayMap.EMPTY);
 /**
  * 
@@ -101,7 +102,7 @@ return cljs.core.apply.call(null,quiescent.dom.select,new cljs.core.PersistentAr
 cljs.core.swap_BANG_.call(null,cljscale.client.settings,cljs.core.assoc,new cljs.core.Keyword(null,"scale","scale",-230427353),root.target.value);
 
 return cljscale.client.load.call(null);
-})], null),cljs.core.map.call(null,cljscale.client.Option,cljs.core.keys.call(null,cljscale.generator.scales)));
+})], null),cljs.core.map.call(null,cljscale.client.Option,cljs.core.keys.call(null,cljscale.theory.scales)));
 }),cljs.core.PersistentArrayMap.EMPTY);
 /**
  * 
